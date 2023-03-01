@@ -9,3 +9,19 @@
  * HINT:
  * This can be solved using either a LEFT JOIN or the NOT IN operator.
  */
+
+SELECT 
+    last_name,
+    first_name
+FROM
+    actor
+WHERE 
+    (last_name, first_name) NOT IN (
+        SELECT 
+            last_name,
+            first_name
+        FROM 
+            customer
+    )
+ORDER BY
+    (last_name, first_name);
